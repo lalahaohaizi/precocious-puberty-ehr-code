@@ -1,7 +1,7 @@
-# Analysis code — LLM-based information extraction from CPP electronic medical records
+# Analysis code — LLM-based information extraction from CPP electronic health records
 
 R scripts used to evaluate and visualise large-language-model (LLM) extraction of individual
-risk factors from unstructured electronic medical records (EMR) of children with central
+risk factors from unstructured electronic health records (EHR) of children with central
 precocious puberty (CPP).
 
 This repository contains **analysis code only**. It does not contain patient records, the
@@ -15,7 +15,7 @@ not distributed here (see [Data availability](#data-availability)).
 | [`Evaluation indicator.r`](Evaluation%20indicator.r) | Scores reference vs. predicted values for all 54 extracted variables and writes one multi-sheet workbook of metrics. The only self-contained, headless-runnable script. |
 | [`Model compare.r`](Model%20compare.r) | Compares five locally deployed models (GLM4:9B, Qwen2:7B, Yi:6B, Llama3.1:8B, Gemma2:9B) on overall and per-factor accuracy/precision/recall/F1 — bar plots, radar chart, heatmap. |
 | [`Model prediction.R`](Model%20prediction.R) | LASSO variable selection and logistic regression for the return-visit flag, with 500-replicate bootstrap internal validation, an 80/20 external split, ROC, and `rms::val.prob` calibration. |
-| [`Group correlation heatmap.R`](Group%20correlation%20heatmap.R) | Pearson correlations between text-similarity metrics (Cosine, Dice, Jaccard, Levenshtein) and length/time metrics, computed separately for each EMR section. |
+| [`Group correlation heatmap.R`](Group%20correlation%20heatmap.R) | Pearson correlations between text-similarity metrics (Cosine, Dice, Jaccard, Levenshtein) and length/time metrics, computed separately for each EHR section. |
 | [`Circular heatmap.R`](Circular%20heatmap.R) | Radial heatmap (`coord_radial`) of extraction performance across risk-factor subcategories. |
 | [`Text similarity and tokens.R`](Text%20similarity%20and%20tokens.R) | String-edit-distance similarity between source text and model output, paired *t*-tests, and `tiktoken` token counts. |
 
@@ -58,7 +58,7 @@ Expected shapes:
   laid out this way; the subdirectory names above are what the script looks for, and they do not
   match the workbook naming in this working copy, so leaving the default will raise
   `Input workbook not found`.
-- **Group correlation**: one sheet per EMR section with columns `Cosine`, `Dice`, `Levenshtein`,
+- **Group correlation**: one sheet per EHR section with columns `Cosine`, `Dice`, `Levenshtein`,
   `Jaccard`, `input length`, `output length`, `time`.
 - **Circular heatmap**: long-format `id`, `label`, `Accuracy`, `Precision`, `Recall`, `F1-score`.
 
