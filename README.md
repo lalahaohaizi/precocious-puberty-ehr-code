@@ -1,9 +1,7 @@
-# Analysis code — LLM-based information extraction from PP electronic health records
+#LLM-based information extraction from PP electronic health records
 
 R scripts for a study extracting individual risk factors from unstructured electronic health
-records (EHR) of children with precocious puberty (PP). Analysis code only; the record
-data and model outputs are read from Excel workbooks that are not included here.
-
+records (EHR) of children with precocious puberty (PP). 
 ## Files
 
 | Script | What it does |
